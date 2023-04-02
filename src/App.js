@@ -4,27 +4,20 @@ import Leaderboards from "./pages/Leaderboards";
 import Search from "./pages/Search";
 import SelectTeams from "./pages/SelectTeams";
 import CenterContainer from "./components/Container/Container";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  let component;
-  switch (window.location.pathname) {
-    case "/":
-      component = <Home />;
-      break;
-    case "/select-teams":
-      component = <SelectTeams />;
-      break;
-    case "/leaderboards":
-      component = <Leaderboards />;
-      break;
-    case "/search":
-      component = <Search />;
-      break;
-  }
   return (
     <>
       <Navbar />
-      <CenterContainer>{component}</CenterContainer>
+      <CenterContainer>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/select-teams" element={<SelectTeams />} />
+          <Route path="/leaderboards" element={<Leaderboards />} />
+          <Route path="/search" element={<Search />} />
+        </Routes>
+      </CenterContainer>
     </>
   );
 }

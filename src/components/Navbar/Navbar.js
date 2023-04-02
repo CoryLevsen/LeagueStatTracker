@@ -1,24 +1,31 @@
 import React from "react";
 import NavContainer from "./styles";
+import { Link, resolvePath, useMatch, useResolvedPath } from "react-router-dom";
 
 function Navbar() {
   return (
     <NavContainer>
-      <a href="/" className="site-title">
+      <Link to="/" className="site-title">
         League In-House
-      </a>
+      </Link>
       <ul>
-        <li className="active">
-          <a href="/select-teams">Select Teams</a>
-        </li>
-        <li>
-          <a href="/leaderboards">Leaderboards</a>
-        </li>
-        <li>
-          <a href="/search">Search</a>
-        </li>
+        <CustomLink to="/select-teams">Select Teams</CustomLink>
+        <CustomLink to="/leaderboards">Leaderboards</CustomLink>
+        <CustomLink to="/search">Search</CustomLink>
       </ul>
     </NavContainer>
+  );
+}
+
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+  return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </li>
   );
 }
 
