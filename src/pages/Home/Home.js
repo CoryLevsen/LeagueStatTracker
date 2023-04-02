@@ -4,7 +4,7 @@ import PageHeader from "../../components/PageHeader";
 function Home() {
   return (
     <>
-      <PageHeader header="Home" />;
+      <PageHeader header="Home" />
     </>
   );
 }

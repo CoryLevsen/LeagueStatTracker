@@ -1,6 +1,6 @@
 import React from "react";
 import NavContainer from "./styles";
-import { Link, resolvePath, useMatch, useResolvedPath } from "react-router-dom";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 function Navbar() {
   return (

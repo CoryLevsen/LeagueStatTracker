@@ -5,7 +5,7 @@ function PageHeader({ header }) {
   return (
     <>
       <div className="container">
-        <Header>{header}</Header>;
+        <Header>{header}</Header>
       </div>
     </>
   );
